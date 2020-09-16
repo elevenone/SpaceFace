@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "XD Theme",
+    "window.zoomLevel": 1,
+    "workbench.iconTheme": "helium-icon-theme",
+    "tabnine.experimentalAutoImports": true,
+    "sqltools.useNodeRuntime": true,
+    "editor.tabSize": 4,
+    "[php]": {
+    
+    }
+}

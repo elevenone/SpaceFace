@@ -1,0 +1,208 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "28cc9cda07282d570ffc580154fc514a",
+    "packages": [
+        {
+            "name": "aura/di",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auraphp/Aura.Di.git",
+                "reference": "fefda6b3db5cb04feb2bcf36f845317cfead857e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auraphp/Aura.Di/zipball/fefda6b3db5cb04feb2bcf36f845317cfead857e",
+                "reference": "fefda6b3db5cb04feb2bcf36f845317cfead857e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0",
+                "psr/container": "^1.0"
+            },
+            "provide": {
+                "psr/container-implementation": "^1.0"
+            },
+            "require-dev": {
+                "acclimate/container": "^2",
+                "phpunit/phpunit": "^8",
+                "producer/producer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aura\\Di\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aura.Di Contributors",
+                    "homepage": "https://github.com/auraphp/Aura.Di/contributors"
+                }
+            ],
+            "description": "A serializable dependency injection container with constructor and setter injection, interface and trait awareness, configuration inheritance, and much more.",
+            "homepage": "https://github.com/auraphp/Aura.Di",
+            "keywords": [
+                "container",
+                "dependency injection",
+                "dependency injection container",
+                "di",
+                "di container"
+            ],
+            "time": "2020-05-26T11:19:26+00:00"
+        },
+        {
+            "name": "pmjones/auto-route",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pmjones/AutoRoute.git",
+                "reference": "85f20e8d6025c92783d3aee408e7e8b17ad05ebe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pmjones/AutoRoute/zipball/85f20e8d6025c92783d3aee408e7e8b17ad05ebe",
+                "reference": "85f20e8d6025c92783d3aee408e7e8b17ad05ebe",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "pds/skeleton": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "bin": [
+                "bin/autoroute-dump.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AutoRoute\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Automatically routes HTTP request to action classes.",
+            "homepage": "http://github.com/pmjones/auto-route",
+            "keywords": [
+                "action",
+                "adr",
+                "route",
+                "router",
+                "routing"
+            ],
+            "time": "2019-12-30T18:09:40+00:00"
+        },
+        {
+            "name": "pmjones/request",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pmjones/php-request.git",
+                "reference": "e2197da08e1356a020bd9ed5c82945f9aab59404"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pmjones/php-request/zipball/e2197da08e1356a020bd9ed5c82945f9aab59404",
+                "reference": "e2197da08e1356a020bd9ed5c82945f9aab59404",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Boehr",
+                    "email": "jbboehr@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Paul M. Jones",
+                    "email": "pmjones@php.net",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Server-side request and response objects from <http://pecl.php.net/request>.",
+            "time": "2020-06-07T21:20:14+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-02-14T16:28:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

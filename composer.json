@@ -1,0 +1,24 @@
+{
+    "name": "elevenone/spaceface-autorouter",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Zsolt Sandor",
+            "email": ""
+        }
+    ],
+    "scripts": {
+        "dump-routes": "sh ./vendor/bin/autoroute-dump.php App\\\\Http ./src/Http"
+    },
+    "require": {
+        "pmjones/auto-route": "^1.1",
+        "pmjones/request": "^2.0",
+        "aura/di": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "": "src/"
+        }
+	}
+}

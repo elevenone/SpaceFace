@@ -95,8 +95,8 @@ $di = $builder->newInstance();
 
 // presuming a DI-based Factory that can create new action class instances:
 // $action = Factory::newInstance($route->class);
-// $action = $di->newInstance($route->class);
-$action = $di->lazyNew($route->class);
+$action = $di->newInstance($route->class);
+// $action = $di->lazyNew($route->class); // lazy does not work with autoroute
 
 // $action = $di->set('route_service', $di->lazyNew($route->class));
 

@@ -7,11 +7,6 @@ declare(strict_types=1);
 
 
 
-echo '<pre>';
-echo 'hi<br/>';
-echo '<hr/><br/>';
-
-
 
 /**
  * Request
@@ -134,9 +129,7 @@ $response = call_user_func([$action, $route->method], ...$route->params);
 
 
 
-echo '<br/><br/><hr/>';
-echo '<br/>BYE';
-echo '</pre>';
+
 
 $service = $di->get('example_service_name');
 

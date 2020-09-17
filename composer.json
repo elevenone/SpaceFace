@@ -1,10 +1,12 @@
 {
     "name": "elevenone/spaceface-autorouter",
     "type": "project",
+    "description": "A project skeleton with AutoRoute router",
+    "license": "MIT",
     "authors": [
         {
             "name": "Zsolt Sandor",
-            "email": ""
+            "email": "zsolt.sandor@gmx.com"
         }
     ],
     "scripts": {
@@ -13,7 +15,8 @@
     "require": {
         "pmjones/auto-route": "^1.1",
         "pmjones/request": "^2.0",
-        "aura/di": "^4.1"
+        "aura/di": "^4.1",
+        "relay/relay": "~2.0"
     },
     "autoload": {
         "psr-4": {

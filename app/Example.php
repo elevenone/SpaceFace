@@ -12,7 +12,7 @@ class Example
     // ...
     public function __construct()
     {
-        echo 'string from example service';
+        // echo 'string from example service';
     }
 }
 

@@ -6,14 +6,14 @@ namespace App\Http\Photos\Archive;
 
 class GetPhotosArchive
 {
-    public function __invoke(int $year = null, int $month = null)
+    public function __invoke(
+        int $year = null,
+        int $month = null,
+        int $day = null
+    ) : \ServerResponse
     {
-        // ...
-        echo '90897986786078';
-        echo 'year: ' . $year . ' / ' . 'month: ' . $month;
+        $payload = $this->domain->fetchAllBySpan($year, $month, $day);
+        return $this->responder->response($payload);
     }
 }
-
-
-
 

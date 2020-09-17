@@ -8,7 +8,7 @@
         }
     ],
     "scripts": {
-        "dump-routes": "sh ./vendor/bin/autoroute-dump.php App\\\\Http ./src/Http"
+        "dump-routes": "sh ./vendor/bin/autoroute-dump.php App\\\\Http ./app/Http"
     },
     "require": {
         "pmjones/auto-route": "^1.1",

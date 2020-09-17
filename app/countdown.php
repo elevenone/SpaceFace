@@ -90,6 +90,29 @@ use Aura\Di\ContainerBuilder;
 $builder = new ContainerBuilder();
 $di = $builder->newInstance();
 
+/**
+ * demo injection to http://localhost:8000/demo
+ */
+// constructor / this is working
+// $di->params['App\Http\Demo\GetDemo']['mystring'] = 'silencioso como una sombra';
+// $di->newInstance('App\Http\Demo\GetDemo');
+
+// setter / NOT WORKING
+// $di->setters['\App\Http\Demo\GetDemo']['setFoo'] = 'silencioso como una sombra';
+
+
+//
+$container_builder = new ContainerBuilder();
+// use the builder to create and configure a container
+// using an array of ContainerConfig classes
+$di = $container_builder->newConfiguredInstance([
+    'App\Config'
+]);
+
+
+
+
+
 
 
 /**
@@ -107,7 +130,7 @@ $action = $di->newInstance($route->class);
 // presumably getting back an HTTP Response
 $response = call_user_func([$action, $route->method], ...$route->params);
 
-
+// echo $response;
 
 
 

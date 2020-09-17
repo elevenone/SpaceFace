@@ -40,7 +40,7 @@ $autoRoute = new AutoRoute(
 );
 
 // set method
-$autoRoute->setMethod('run');
+// $autoRoute->setMethod('run');
 
 // base url
 // $autoRoute->setBaseUrl('/api');
@@ -137,3 +137,7 @@ $response = call_user_func([$action, $route->method], ...$route->params);
 echo '<br/><br/><hr/>';
 echo '<br/>BYE';
 echo '</pre>';
+
+$service = $di->get('example_service_name');
+
+// var_dump($service);

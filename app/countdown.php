@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * spacebase
+ * project skeleton using AutoRoute
+ */
 declare(strict_types=1);
 
 
@@ -21,14 +24,16 @@ $request = new SapiRequest($GLOBALS);
 
 
 /**
- * Routing
+ * AutoRoute
+ * 
+ * Instantiate the AutoRoute container class
+ * with the top-level HTTP action namespace
+ * and the directory path to classes in that namespace:
+ * use AutoRoute\AutoRoute;
  */
-
- // AutoRiute / pmjones
- // 1. Instantiate the AutoRoute container class with the top-level HTTP action namespace 
- // and the directory path to classes in that namespace:
 use AutoRoute\AutoRoute;
 
+// 1 
 $autoRoute = new AutoRoute(
     'App\\Http',
     dirname(__DIR__) . '/App/Http/'
@@ -36,13 +41,16 @@ $autoRoute = new AutoRoute(
 
 // set method
 // $autoRoute->setMethod('exec');
+
 // base url
 // $autoRoute->setBaseUrl('/api');
 
-// 2. Then, pull a new Router out of the container ...
+// 2.
+// Then, pull a new Router out of the container ...
 $router = $autoRoute->newRouter();
 
-// 3. ... and call route() with the HTTP request method verb
+// 3.
+// ... and call route() with the HTTP request method verb
 // and the path string to get back a Route, catching exceptions along the way:
 try {
     // with php-request
@@ -70,11 +78,6 @@ try {
     die('Method not allowed');
 
 }
-
-
-// 
-// $sender = new SapiResponseSender();
-//
 
 
 
@@ -105,36 +108,6 @@ $action = $di->newInstance($route->class);
 $response = call_user_func([$action, $route->method], ...$route->params);
 
 
-/*
-if ( $route === 'error' ) {
-    var_dump($route);
-} else {
-
-
-
-}
-
-if (! $route) {
-    echo "No route found for the request.";
-    exit;
-}
-
-
-
-*/
-
-
-
-
-
-
-
-//$generator = $autoRoute->newGenerator();
-
-//use App\Http\Company\GetCompany;
-
-//$path = $generator->generate(GetCompany::CLASS, '45');
-//print_r($path);
 
 
 

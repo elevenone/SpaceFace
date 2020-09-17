@@ -40,7 +40,7 @@ $autoRoute = new AutoRoute(
 );
 
 // set method
-// $autoRoute->setMethod('exec');
+$autoRoute->setMethod('run');
 
 // base url
 // $autoRoute->setBaseUrl('/api');

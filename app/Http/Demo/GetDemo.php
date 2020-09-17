@@ -12,14 +12,13 @@ class GetDemo extends \App\App
 
     public function __construct($mystring)
     {
-        echo ' __construct __construct __construct ';
         $this->mystring = $mystring;
     }
 
-    public function setFoo($mystring)
+    public function setFoo($mystring2)
     {
         echo ' setFoo setFoo setFoo ';
-        $this->mystring = $mystring;
+        $this->mystring2 = $mystring2;
     }
 
     public function __invoke()
@@ -29,6 +28,18 @@ class GetDemo extends \App\App
         echo __FILE__ . ' / ' . __CLASS__;
         echo '<br/>';
         echo 'mystring: ' . $this->mystring;
+        echo 'mystring 2 : ' . $this->mystring2;
+        echo '<br/>';
+    }
+
+    public function run()
+    {
+        // ...
+        echo '<br/>';
+        echo __FILE__ . ' / ' . __CLASS__;
+        echo '<br/>';
+        echo 'mystring: ' . $this->mystring;
+        echo 'mystring 2 : ' . $this->mystring2;
         echo '<br/>';
     }
 }

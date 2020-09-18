@@ -25,7 +25,7 @@ class App
         $view_registry->set("about",            "app/views/about.php");
         $view_registry->set("impressum",        "app/views/impressum.php");
         $view_registry->set("demo",             "app/views/demo.php");
-        $view_registry->set("demo2",             "app/views/demo2.php");
+        $view_registry->set("demo2",            "app/views/demo2.php");
 
         // templates / partials
         $layout_registry->set("_navigation",    "app/views/_navigation.php");

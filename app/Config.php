@@ -10,7 +10,7 @@ class Config extends ConfigCollection
     {
         parent::__construct(
             [
-                DemoConfig::class
+                \App\Views\Config::class
             ]
         );
     }

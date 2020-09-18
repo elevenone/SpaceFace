@@ -1,15 +1,11 @@
 <?php
-/**
- * root action
- */
-namespace App\Http\Demo;
 
-class GetDemo extends \App\App
+
+/* GET /company/{companyId} # get an existing company */
+namespace App\Http\Demo2;
+
+class GetDemo2 extends \App\App
 {
-
-    public $mystring;
-
-
     public function __construct($mystring)
     {
         parent::__construct();
@@ -28,12 +24,7 @@ class GetDemo extends \App\App
         $data = array('mystring2 set setFoo' => $this->mystring2);
         $this->view->addData($data);
 
-        $this->view->setView('demo');
-    }
-
-    public function run()
-    {
+        // ...
+        $this->view->setView('demo2');
     }
 }
-
-

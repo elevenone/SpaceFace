@@ -21,16 +21,18 @@ class App
         $layout_registry = $this->view->getLayoutRegistry();
 
         // views
-        $view_registry->set("index",          "app/views/index.php");
-        $view_registry->set("about",          "app/views/about.php");
-        $view_registry->set("impressum",      "app/views/impressum.php");
+        $view_registry->set("index",            "app/views/index.php");
+        $view_registry->set("about",            "app/views/about.php");
+        $view_registry->set("impressum",        "app/views/impressum.php");
+        $view_registry->set("demo",             "app/views/demo.php");
+        $view_registry->set("demo2",             "app/views/demo2.php");
 
         // templates / partials
-        $layout_registry->set("_navigation",  "app/views/_navigation.php");
-        $layout_registry->set("_footer",      "app/views/_footer.php");
+        $layout_registry->set("_navigation",    "app/views/_navigation.php");
+        $layout_registry->set("_footer",        "app/views/_footer.php");
 
         // templates / layout
-        $layout_registry->set("layout",       "app/views/layout.php");
+        $layout_registry->set("layout",         "app/views/layout.php");
 
         $this->view->setData([
             'name' => 'DATA FROM run.php',

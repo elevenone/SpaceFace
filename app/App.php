@@ -22,6 +22,7 @@ class App
 
         // views
         $view_registry->set("index",          "app/views/index.php");
+        $view_registry->set("about",          "app/views/about.php");
 
         // templates / partials
         $layout_registry->set("_navigation",  "app/views/_navigation.php");
@@ -68,7 +69,7 @@ class App
     public function __destruct()
     {
         // $this->view = $view;
-        $this->view->setView('index');
+        // $this->view->setView('index');
         $this->view->setLayout('layout');
         $output = $this->view->__invoke(); // or just $view()
         

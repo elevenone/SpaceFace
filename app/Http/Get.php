@@ -18,7 +18,7 @@ class Get extends \App\App
 
         $this->view->addData($data);
         // print_r($this->view);
-
+        $this->view->setView('index');
         // ...
         // echo __CLASS__;
     }

@@ -96,7 +96,7 @@ $di = $builder->newInstance();
 // $di->setters['\App\Http\Demo\GetDemo']['setFoo'] = 'silencioso como una sombra';
 
 
-//
+// Di container
 $container_builder = new ContainerBuilder();
 // use the builder to create and configure a container
 // using an array of ContainerConfig classes
@@ -104,7 +104,9 @@ $di = $container_builder->newConfiguredInstance([
     'App\Config'
 ]);
 
-
+// Di services
+// $service = $di->get('example_service_name');
+// var_dump($service);
 
 
 
@@ -119,8 +121,6 @@ $di = $container_builder->newConfiguredInstance([
 $action = $di->newInstance($route->class);
 // $action = $di->lazyNew($route->class); // lazy does not work with autoroute
 
-// $action = $di->set('route_service', $di->lazyNew($route->class));
-
 // call the action instance with the method and params,
 // presumably getting back an HTTP Response
 $response = call_user_func([$action, $route->method], ...$route->params);
@@ -130,7 +130,12 @@ $response = call_user_func([$action, $route->method], ...$route->params);
 
 
 
+echo '<pre>';
+$response = new SapiResponse();
+$response->setHeader('Foo-Bar', 'baza');
+var_dump($response->getHeader('Foo-Bar'));
 
-$service = $di->get('example_service_name');
 
-// var_dump($service);
+var_dump($request->headers);
+
+$sender = new SapiResponseSender();

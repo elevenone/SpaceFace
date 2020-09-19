@@ -10,7 +10,8 @@ class Config extends ConfigCollection
     {
         parent::__construct(
             [
-                \App\Views\Config::class
+                \App\Views\Config::class,
+                \App\Services\Config::class
             ]
         );
     }

@@ -33,7 +33,7 @@ class Config extends ContainerConfig
         $di->params['App\Http\Demo2\GetDemo2']['mystring'] = 'In the dark of the night | Those small hours | Uncertain and anxious | I need to call you';
         $di->setters['App\Http\Demo2\GetDemo2']['setFoo'] = 'silencioso como una sombra';
 
-        $di->set('example_service_name', $di->lazyNew('App\Example'));
+
     }
 
     public function modify(Container $di): void

@@ -1,11 +1,15 @@
 <?php
 
-namespace App;
+declare(strict_types=1);
+
+namespace App\Responder;
 
 use Aura\View\ViewFactory;
+use Aura\Di\Container;
+use Aura\Di\ContainerConfig;
+use Aura\Di\ContainerBuilder;
 
-
-class App
+class AuraviewResponder
 {
     public function __construct()
     {
@@ -56,23 +60,47 @@ class App
         $data = ['GRRRR' => '56234645756787698798796780890879089'];
         $this->view->addData($data);
 
-
-
-
-        
-
-
-
     }
 
     public function __invoke()
     {
+
+    }
+
+    public function setView($file)
+    {
+        $this->file = $file;
+    }
+
+    public function setData($data)
+    {
+        $this->view->addData($data);
     }
 
     public function __destruct()
     {
+
+        $builder = new ContainerBuilder();
+        $di = $builder->newInstance();
+
+        echo 'example_service_nameexample_service_nameexample_service_nameexample_service_nameexample_service_name >>>';
+        // $di->get('example_service_name');
+
+        // $container->get;
+      
+        // get a service; the first get() will lock the container
+        //$service = $di->get('example_service_name');
+
+        // the two service objects are the same
+        //var_dump($service); // true
+
+        echo '<<< example_service_nameexample_service_nameexample_service_nameexample_service_nameexample_service_name';
+
+
+
         // $this->view = $view;
         // $this->view->setView('index');
+        $this->view->setView($this->file);
         $this->view->setLayout('layout');
         $output = $this->view->__invoke(); // or just $view()
         

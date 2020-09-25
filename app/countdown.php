@@ -7,13 +7,14 @@ declare(strict_types=1);
 
 
 
-
 /**
  * Request
  */
 
 // php-request / pmjones
 $request = new SapiRequest($GLOBALS);
+$response = new SapiResponse();
+
 // print_r($request);
 
 
@@ -51,27 +52,27 @@ try {
     // with php-request
     $route = $router->route($request->method, $request->url['path']);
     // $route = $router->route($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
-
 } catch (\AutoRoute\InvalidNamespace $e) {
     // 400 Bad Request
-    http_response_code(400);
+    //http_response_code(400);
+    $response->setCode(400);
+    // print_r($response->getCode());
     die('Bad Request');
 
 } catch (\AutoRoute\InvalidArgument $e) {
     // 400 Bad Request
-    http_response_code(400);
+    $response->setCode(400);
     die('Bad Request');
 
 } catch (\AutoRoute\NotFound $e) {
     // 404 Not Found
-    http_response_code(404);
+    $response->setCode(404);
     die('404');
 
 } catch (\AutoRoute\MethodNotAllowed $e) {
     // 405 Method Not Allowed
-    http_response_code(405);
+    $response->setCode(405);
     die('Method not allowed');
-
 }
 
 
@@ -109,19 +110,18 @@ $action = $di->newInstance($route->class);
 
 // call the action instance with the method and params,
 // presumably getting back an HTTP Response
-$response = call_user_func([$action, $route->method], ...$route->params);
+// $response = call_user_func([$action, $route->method], ...$route->params);
 
 // echo $response;
 
+call_user_func([$action, $route->method], ...$route->params);
 
 
 
-echo '<pre>';
-$response = new SapiResponse();
+/*
 $response->setHeader('Foo-Bar', 'baza');
 var_dump($response->getHeader('Foo-Bar'));
-
-
 var_dump($request->headers);
+*/
 
-$sender = new SapiResponseSender();
+//$sender = new SapiResponseSender( call_user_func([$action, $route->method], ...$route->params) );

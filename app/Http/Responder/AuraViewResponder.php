@@ -18,18 +18,34 @@ class AuraViewResponder extends AbstractResponder
         $this->template = $template;
     }
 
+    public function isAsync()
+    {
+        //if ( isset($_SERVER['HTTP_X_PFETCH'] )) {
+        if ( isset( $this->request->server['HTTP_X_PFETCH'] )) {
+			return true;
+		}
+
+        return false;
+    }
+    
+
+
     protected function registerTemplates() : void
     {
+        $viewspath = dirname(dirname(__DIR__));
+
         $registry = $this->template->getViewRegistry();
 
         // layout
         $layout_registry = $this->template->getLayoutRegistry(); // zzz
+        $layout_registry->set('layout', $viewspath . '/views/layouts/layout.php');
+
+        // partials
+        $layout_registry->set('_navigation', $viewspath. '/views/_partials/_navigation.php');
+        $layout_registry->set('_footer', $viewspath . '/views/_partials/_footer.php');
 
 
-        $layout_registry->set('layout', dirname(dirname(__DIR__)) . '/views/layouts/layout.php');
-
-
-        $path = dirname(dirname(__DIR__)) . '/views';
+        $path = $viewspath . '/views';
 
         $files = glob("{$path}/*.php");
         foreach ($files as $file) {
@@ -43,7 +59,16 @@ class AuraViewResponder extends AbstractResponder
     {
         // aura view
         $this->registerTemplates();
-        $this->template->setLayout($layout);
+
+
+        if ($this->isAsync() === false) {
+            $this->template->setLayout($layout);
+        }
+
+        // $this->template->setLayout($layout);
+
+
+
         $this->template->setView($name);
         $this->template->addData($this->payload->getResult());
 

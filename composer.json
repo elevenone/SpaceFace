@@ -16,6 +16,7 @@
         "pmjones/auto-route": "^1.1",
         "pmjones/request": "^2.0",
         "aura/di": "^4.1",
+        "aura/html": "^2.5",
         "aura/view": "^2.3",
         "aura/payload": "^3.0",
         "atlas/pdo": "^1.1"

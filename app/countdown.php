@@ -1,21 +1,63 @@
 <?php
 /**
- * spacebase
- * project skeleton using AutoRoute
+ * project skeleton
  */
 declare(strict_types=1);
 
 
 
+
+/*
+use Aura\View\ViewFactory;
+
+$view_factory = new ViewFactory;
+$view = $view_factory->newInstance();
+
+// AURA views and templates
+$view_registry = $view->getViewRegistry();
+$layout_registry = $view->getLayoutRegistry();
+
+// add templates to the view registry
+
+$view_registry->set('browse',   dirname(__DIR__) . '/app/views/browse.php');         // the "main" template
+$view_registry->set('_item',    dirname(__DIR__) . '/app/views/_item.php');           // the "sub" template
+
+$layout_registry->set('layout', dirname(__DIR__) . '/app/views/layouts/layout.php');
+
+
+$view->setData(array(
+    'items' => array(
+        array(
+            'id' => '1',
+            'name' => 'Foo',
+        ),
+        array(
+            'id' => '2',
+            'name' => 'Bar',
+        ),
+        array(
+            'id' => '3',
+            'name' => 'Baz',
+        ),
+    )
+));
+
+$view->setLayout('layout');
+$view->setView('browse');
+$output = $view->__invoke();                                            // or just $view()
+echo $output;
+*/
+
+
+
 /**
  * Request
+ * php-request / pmjones
  */
 
-// php-request / pmjones
+
 $request = new SapiRequest($GLOBALS);
 $response = new SapiResponse();
-
-// print_r($request);
 
 
 
@@ -31,21 +73,18 @@ use AutoRoute\AutoRoute;
 
 // 1 
 $autoRoute = new AutoRoute(
-    'App\\Http',
-    dirname(__DIR__) . '/App/Http/'
+    'App\\Http\\Action',
+    dirname(__DIR__) . '/app/Http/Action/'
 );
 
-// set method
-// $autoRoute->setMethod('run');
+// $autoRoute->setMethod('run'); // set method
+// $autoRoute->setBaseUrl('/api'); // base url
 
-// base url
-// $autoRoute->setBaseUrl('/api');
 
-// 2.
+
 // Then, pull a new Router out of the container ...
 $router = $autoRoute->newRouter();
 
-// 3.
 // ... and call route() with the HTTP request method verb
 // and the path string to get back a Route, catching exceptions along the way:
 try {
@@ -91,10 +130,6 @@ $di = $container_builder->newConfiguredInstance([
     'App\Config'
 ]);
 
-// Di services
-$service = $di->get('example_service_name');
-var_dump($service);
-
 
 
 
@@ -104,24 +139,16 @@ var_dump($service);
  */
 
 // presuming a DI-based Factory that can create new action class instances:
-// $action = Factory::newInstance($route->class);
 $action = $di->newInstance($route->class);
-// $action = $di->lazyNew($route->class); // lazy does not work with autoroute
-
-// call the action instance with the method and params,
-// presumably getting back an HTTP Response
-// $response = call_user_func([$action, $route->method], ...$route->params);
-
-// echo $response;
-
-call_user_func([$action, $route->method], ...$route->params);
+$response = call_user_func([$action, $route->method], ...$route->params);
 
 
+/**
+ * emit response
+ */
 
-/*
-$response->setHeader('Foo-Bar', 'baza');
-var_dump($response->getHeader('Foo-Bar'));
-var_dump($request->headers);
-*/
+// whe working with payloads
+echo($response->getContent());
 
-//$sender = new SapiResponseSender( call_user_func([$action, $route->method], ...$route->params) );
+// else echo only
+// echo($response);

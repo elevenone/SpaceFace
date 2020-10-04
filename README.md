@@ -1,6 +1,6 @@
 # SpaceFace
 
-A simple project skeleton using AutoRoute
+A simple ADR / Action Domain Responder / project skeleton using AutoRoute, and Aura View
 
 ## Installing SpaceFace
 

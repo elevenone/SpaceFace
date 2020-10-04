@@ -2,17 +2,33 @@
 
 namespace App;
 
-use Aura\Di\ConfigCollection;
+use Aura\Di\Container;
+use Aura\Di\ContainerConfig;
+use AutoRoute\AutoRoute;
 
-class Config extends ConfigCollection
+class Config extends ContainerConfig
 {
-    public function __construct()
+    public function define(Container $di): void
     {
-        parent::__construct(
-            [
-                \App\Responder\Config::class,
-                \App\Services\Config::class
-            ]
+
+      //  $di->params[$route->class]['paths'] = array(
+      //      dirname(__DIR__) . '/Views',
+     //   );
+
+
+        $di->params['Aura\View\TemplateRegistry']['paths'] = array(
+            dirname(__DIR__) . '/Views',
         );
+
+        $di->params['Aura\View\View'] = array(
+            'view_registry'   => $di->lazyNew('Aura\View\TemplateRegistry'),
+            'layout_registry' => $di->lazyNew('Aura\View\TemplateRegistry'),
+        );
+
+        $di->set('view', $di->lazyNew('Aura\View\View'));
+    }
+
+    public function modify(Container $di): void
+    {
     }
 }

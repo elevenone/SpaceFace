@@ -2,10 +2,11 @@
 /**
  * root action
  */
-namespace App\Http\Domain;
+namespace App\Http\Action\Page;
 
+use App\Http\Domain\Payload;
 
-class Page
+class PageDomain
 {
     protected $domain;
     protected $responder;

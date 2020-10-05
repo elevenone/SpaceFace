@@ -11,7 +11,7 @@ namespace App\Http\Action\Page;
 
 use SapiResponse as Response;
 use SapiRequest as Request;
-use App\Http\Domain\Page;
+use App\Http\Action\Page\PageDomain;
 use App\Http\Action\Page\PageResponder;
 use Aura\View\View as Template;
 
@@ -33,7 +33,7 @@ class GetPage
         );
         
         // adr
-        $domain = new Page();
+        $domain = new PageDomain();
         $responder = new PageResponder( $view );
         $this->domain = $domain;
         $this->responder = $responder;

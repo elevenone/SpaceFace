@@ -12,7 +12,6 @@ use App\Http\Responder\AbstractResponder;
 
 class AuraViewResponder extends AbstractResponder
 {
-    // RESPONDER 2
     public function __construct(Template $template)
     {
         $this->template = $template;
@@ -20,15 +19,13 @@ class AuraViewResponder extends AbstractResponder
 
     public function isAsync()
     {
-        //if ( isset($_SERVER['HTTP_X_PFETCH'] )) {
+        // if ( isset($_SERVER['HTTP_X_PFETCH'] )) {
         if ( isset( $this->request->server['HTTP_X_PFETCH'] )) {
-			return true;
-		}
+            return true;
+        }
 
         return false;
     }
-    
-
 
     protected function registerTemplates() : void
     {
@@ -52,6 +49,7 @@ class AuraViewResponder extends AbstractResponder
             $name = substr(basename($file), 0, -4);
             $registry->set($name, $file);
         }
+        
     }
 
     // aura rendering view and layout
@@ -60,15 +58,12 @@ class AuraViewResponder extends AbstractResponder
         // aura view
         $this->registerTemplates();
 
-
+        // chek for pfetch request
         if ($this->isAsync() === false) {
             $this->template->setLayout($layout);
         }
 
         // $this->template->setLayout($layout);
-
-
-
         $this->template->setView($name);
         $this->template->addData($this->payload->getResult());
 
